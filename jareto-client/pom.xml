@@ -18,6 +18,10 @@
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
+
+  <scm>
+    <url>https://github.com/svc-ehealth/jareto</url>
+  </scm>
   
   <dependencies>
 

@@ -21,9 +21,9 @@ jobs:
       with:
         java-version: 11
     - run: mkdir staging
-    - run: mvn -B package --file jareto-common/pom.xml
+    - run: mvn -B install --file jareto-common/pom.xml
     - run: cp jareto-common/target/*.jar staging
-    - run: mvn -B package --file jareto-client/pom.xml
+    - run: mvn -B install --file jareto-client/pom.xml
     - run: cp jareto-client/target/*.jar staging
     - name: upload (persist) built artifacts
       uses: actions/upload-artifact@v2

@@ -4,7 +4,7 @@ import javax.ws.rs.core.Response;
 
 /**
  * If you throw this runtime exception, it will be automatically mapped to HTTP wire data 
- * by {@link ServiceAppExceptionMapper}.
+ * by ServiceAppExceptionMapper.
  */
 @SuppressWarnings("serial")
 public class AppRuntimeException extends RuntimeException implements IAppException {

@@ -4,7 +4,7 @@ import javax.ws.rs.core.Response;
 
 /**
  * If you throw this checked exception, it will be automatically mapped to HTTP wire data 
- * by {@link ServiceAppExceptionMapper}.
+ * by ServiceAppExceptionMapper.
  */
 @SuppressWarnings("serial")
 public class AppException extends Exception implements IAppException {

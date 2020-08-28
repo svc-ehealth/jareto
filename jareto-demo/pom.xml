@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>at.co.svc</groupId>
+  <artifactId>jareto-demo</artifactId>
+  <version>0.0.0.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.wildfly.bom</groupId>
+        <artifactId>wildfly-jakartaee8</artifactId>
+        <version>18.0.1.Final</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>	
+  </dependencyManagement>
+  
+  <dependencies>
+  
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>8.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>at.co.svc.ecard</groupId>
+      <artifactId>jareto-client</artifactId>
+      <version>0.0.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>at.co.svc.ecard</groupId>
+      <artifactId>jareto-server</artifactId>
+      <version>0.0.0.0-SNAPSHOT</version>
+    </dependency>
+
+    <!-- this dependency must come BEFORE the microprofile dependency... -->
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-client-microprofile</artifactId>
+      <version>3.9.1.Final</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.microprofile</groupId>
+      <artifactId>microprofile</artifactId>
+      <version>2.1</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    
+    <!-- ***************** -->
+    <!-- TEST DEPENDENCIES -->    
+    <!-- ***************** -->
+
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- not available in JDK any more since 11 -->
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>2.3.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- required by REST client for (de-)serializing JSON -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.jaxrs</groupId>
+      <artifactId>jackson-jaxrs-json-provider</artifactId>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <finalName>jareto-demo</finalName>
+  </build>
+
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <failOnMissingWebXml>false</failOnMissingWebXml>
+  </properties>
+
+</project>

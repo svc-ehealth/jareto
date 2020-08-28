@@ -91,7 +91,20 @@
   </dependencies>
 
   <build>
+  
     <finalName>jareto-demo</finalName>
+    
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <!-- this project contains only remote tests that require a running server (make no sense during mvn build) -->
+          <skipTests>true</skipTests>
+        </configuration>
+      </plugin>
+    </plugins>
+    
   </build>
 
   <properties>

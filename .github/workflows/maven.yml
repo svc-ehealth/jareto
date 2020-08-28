@@ -22,3 +22,8 @@ jobs:
         java-version: 11
     - name: Build with Maven
       run: mvn -B package --file jareto-common/pom.xml
+    - name: upload (persist) built artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: Package
+        path: target/jareto-common.jar

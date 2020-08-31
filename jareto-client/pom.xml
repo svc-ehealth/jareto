@@ -7,6 +7,12 @@
   <artifactId>jareto-client</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
+
+  <parent>
+    <groupId>at.co.svc</groupId>
+    <artifactId>jareto-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
   
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Java REST Tools</description>
@@ -24,7 +30,6 @@
   </scm>
   
   <dependencies>
-
     <dependency>
       <groupId>at.co.svc</groupId>
       <artifactId>jareto-common</artifactId>
@@ -33,76 +38,13 @@
     <dependency>
       <groupId>org.eclipse.microprofile</groupId>
       <artifactId>microprofile</artifactId>
-      <version>2.1</version>
       <type>pom</type>
       <scope>provided</scope>
     </dependency>
-
   </dependencies>
 
   <build>
-  
     <finalName>jareto-client</finalName>
-    
-    <plugins>
-    
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>attach-javadocs</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-    </plugins>
-
   </build>
-
-  <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-  </properties>
-
-  <profiles>
-    <profile>
-      <!-- this profile requires a pgp key and credentials; activate it with -P pgp -->
-      <id>pgp</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 
 </project>

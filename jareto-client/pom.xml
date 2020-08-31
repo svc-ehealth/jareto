@@ -33,7 +33,7 @@
     <dependency>
       <groupId>at.co.svc</groupId>
       <artifactId>jareto-common</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.microprofile</groupId>

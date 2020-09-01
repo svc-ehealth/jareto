@@ -61,6 +61,27 @@
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.8</version>
+        <extensions>true</extensions>
+        <configuration>
+           <serverId>ossrh</serverId>
+           <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+           <!-- when set to false:
+                * you can manually inspect the staging repository
+                * trigger a release of the staging repository with "mvn nexus-staging:release"
+                * or drop the staging repository with "mvn nexus-staging:drop"
+            -->
+           <autoReleaseAfterClose>false</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
   <profiles>
     <profile>
       <!-- this profile requires a pgp key and credentials; activate it with -P release -->
@@ -111,26 +132,18 @@
             </executions>
           </plugin>
           
-          <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.8</version>
-            <extensions>true</extensions>
-            <configuration>
-               <serverId>ossrh</serverId>
-               <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-               <!-- when set to false:
-                    * you can manually inspect the staging repository
-                    * trigger a release of the staging repository with "mvn nexus-staging:release"
-                    * or drop the staging repository with "mvn nexus-staging:drop"
-                -->
-               <autoReleaseAfterClose>false</autoReleaseAfterClose>
-            </configuration>
-          </plugin>
-
         </plugins>
       </build>
     </profile>
   </profiles>
 
+  <developers>
+    <developer>
+      <name>Nenad Jovanovic</name>
+      <email>nenad.jovanovic@svc.co.at</email>
+      <organization>SVC</organization>
+      <organizationUrl>https://www.svc.co.at</organizationUrl>
+    </developer>
+  </developers>
+  
 </project>

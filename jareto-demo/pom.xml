@@ -3,7 +3,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>at.co.svc</groupId>
+  <groupId>at.co.svc.jareto</groupId>
   <artifactId>jareto-demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
@@ -30,12 +30,12 @@
     </dependency>
 
     <dependency>
-      <groupId>at.co.svc</groupId>
+      <groupId>at.co.svc.jareto</groupId>
       <artifactId>jareto-client</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
-      <groupId>at.co.svc</groupId>
+      <groupId>at.co.svc.jareto</groupId>
       <artifactId>jareto-server</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>

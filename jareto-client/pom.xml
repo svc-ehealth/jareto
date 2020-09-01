@@ -3,13 +3,13 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>at.co.svc</groupId>
+  <groupId>at.co.svc.jareto</groupId>
   <artifactId>jareto-client</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <parent>
-    <groupId>at.co.svc</groupId>
+    <groupId>at.co.svc.jareto</groupId>
     <artifactId>jareto-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
@@ -31,7 +31,7 @@
   
   <dependencies>
     <dependency>
-      <groupId>at.co.svc</groupId>
+      <groupId>at.co.svc.jareto</groupId>
       <artifactId>jareto-common</artifactId>
       <version>${project.version}</version>
     </dependency>

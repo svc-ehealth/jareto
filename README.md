@@ -31,14 +31,14 @@ To use the features provided by Jareto, add the following dependency to your pro
 ```
     <!-- for using server-side features -->
     <dependency>
-      <groupId>at.co.svc</groupId>
+      <groupId>at.co.svc.jareto</groupId>
       <artifactId>jareto-server</artifactId>
       <version>INSERT LATEST VERSION HERE</version>
     </dependency>
     
     <!-- for using client-side features -->
     <dependency>
-      <groupId>at.co.svc</groupId>
+      <groupId>at.co.svc.jareto</groupId>
       <artifactId>jareto-client</artifactId>
       <version>INSERT LATEST VERSION HERE</version>
     </dependency>

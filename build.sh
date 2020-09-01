@@ -1,5 +1,16 @@
-# command-line build for all Jareto artifacts (local alternative to Jenkins build)
-mvn clean install --file jareto-parent/pom.xml -P gpg
-mvn clean install --file jareto-common/pom.xml -P gpg
-mvn clean install --file jareto-client/pom.xml -P gpg
-mvn clean install --file jareto-server/pom.xml -P gpg
+# command-line build examples (local alternative to Jenkins build)
+
+# local installation (without Sources / JavaDoc / GPG)
+# mvn clean install
+
+# local installation (with Sources / JavaDoc / GPG)
+# mvn clean install -P release
+
+# snapshot deployment to oss.sonatype.org (without Sources / JavaDoc / GPG)
+# mvn clean deploy
+
+# snapshot deployment to oss.sonatype.org (without Sources / JavaDoc / GPG)
+# mvn clean deploy -P release
+
+# release deployment
+# TODO

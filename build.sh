@@ -9,8 +9,29 @@
 # snapshot deployment to oss.sonatype.org (without Sources / JavaDoc / GPG)
 # mvn clean deploy
 
-# snapshot deployment to oss.sonatype.org (without Sources / JavaDoc / GPG)
+# snapshot deployment to oss.sonatype.org (with Sources / JavaDoc / GPG)
 # mvn clean deploy -P release
 
-# release deployment
+# release deployment WITHOUT Maven Release Plugin
+###################################################
+
+# remove "-SNAPSHOT" from version number
+# mvn versions:set -DgenerateBackupPoms=false -DnewVersion=0.0.1
+
+# staging deployment to oss.sonatype.org (with Sources / JavaDoc / GPG)
+# this command is identical to the one used for snapshot deployment;
+# Maven chooses the correct deployment type based on the version number 
+# mvn clean deploy -P release
+
+# after checking that the content of the staging repository is OK:
+# trigger release of the staging repo
+# mvn nexus-staging:release
+
+# TODO: 
+# - pom versions: either commit+snapshot+commit, or revert
+# - tag release version in Git
+
+# release deployment WITH Maven Release Plugin
+###################################################
+
 # TODO

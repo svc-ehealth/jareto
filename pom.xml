@@ -23,6 +23,12 @@
     <url>https://github.com/svc-ehealth/jareto</url>
   </scm>
 
+  <modules>
+    <module>jareto-common</module>
+    <module>jareto-server</module>
+    <module>jareto-client</module>
+  </modules>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -82,7 +88,7 @@
 
   <profiles>
     <profile>
-      <!-- this profile requires a pgp key and credentials; activate it with -P pgp -->
+      <!-- this profile requires a pgp key and credentials; activate it with -P gpg -->
       <id>gpg</id>
       <build>
         <plugins>

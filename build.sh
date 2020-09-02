@@ -27,9 +27,9 @@
 # trigger release of the staging repo
 # mvn nexus-staging:release
 
-# TODO: 
-# - pom versions: either commit+snapshot+commit, or revert
-# - tag release version in Git
+# revert POM versions (no useless version bump commits)
+
+# tag release version in Git (jareto-<VERSION>)
 
 # release deployment WITH Maven Release Plugin
 ###################################################

@@ -25,6 +25,7 @@
 
 # after checking that the content of the staging repository is OK:
 # trigger release of the staging repo
+# (https://oss.sonatype.org/#view-repositories;staging~browsestorage~at/co/svc/jareto)
 # mvn nexus-staging:release
 
 # revert POM versions (no useless version bump commits)

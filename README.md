@@ -21,8 +21,12 @@ or even [plain servlets](https://jcp.org/en/jsr/detail?id=369).
    * HTTP status codes
    * HTTP headers
  * mapping Java exceptions
-   * server: serialization to HTTP wire data
-   * client: de-serialization from HTTP wire data
+   * server: serialization to HTTP wire data (JSON); these JSON exceptions
+     * can also be parsed by non-Java clients
+     * are customizable and allow transport of structured data
+   * client: de-serialization from HTTP wire data (JSON)
+
+Depending on your requirements, you can use the server-side part of Jareto, or the client-side part, or both.
 
 ## Usage
 
@@ -99,6 +103,8 @@ To add an **HTTP header** to a client request:
 ```
 ClientRequestHeaders.addHeader(HEADER_NAME, HEADER_VALUE);
 ```
+
+*Implementation note*: The client-side part of Jareto uses Java ThreadLocals for managing data, which are also usable in standalone applications (as opposed to @RequestScoped). These ThreadLocals are cleared by the client-side Jareto filters.
 
 ## Mapping Java Exceptions
 

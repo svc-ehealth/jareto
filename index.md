@@ -1,3 +1,3 @@
 # Jareto - Java REST Tools
 
-See https://github.com/svc-ehealth/jareto.
+See [Jareto GitHub Repository](https://github.com/svc-ehealth/jareto).

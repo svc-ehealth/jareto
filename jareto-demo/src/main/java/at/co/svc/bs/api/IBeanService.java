@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 
 import at.co.svc.jareto.common.exceptions.AppException;
 import at.co.svc.jareto.common.exceptions.AppRuntimeException;
+import at.co.svc.jareto.common.meta.Header;
 import at.co.svc.jareto.server.exceptions.ServiceAppExceptionMapper;
 
 /**
@@ -17,6 +18,7 @@ import at.co.svc.jareto.server.exceptions.ServiceAppExceptionMapper;
 @Path("v1")
 @Consumes({ MediaType.APPLICATION_JSON + ";charset=utf-8" })
 @Produces({ MediaType.APPLICATION_JSON + ";charset=utf-8" })
+@Header(name = IBeanService.X_TEST_HEADER_FROM_SERVER_CLASS, value = "test-class")
 public interface IBeanService {
 
   public static final String ENDPOINT = "http://localhost:8080/jareto-demo/";
@@ -37,10 +39,21 @@ public interface IBeanService {
   public static final String X_TEST_HEADER_FROM_SERVER = "x-test-header-from-server";
 
   /**
+   * Some custom header that the service returns to the client via class-level annotation.
+   */
+  public static final String X_TEST_HEADER_FROM_SERVER_CLASS = "x-test-header-from-server-class";
+  
+  /**
+   * Some custom header that the service returns to the client via method-level annotation.
+   */
+  public static final String X_TEST_HEADER_FROM_SERVER_METHOD = "x-test-header-from-server-method";
+  
+  /**
    * ENDPOINT/v1/ping 
    */
   @Path("ping")
   @GET
+  @Header(name = IBeanService.X_TEST_HEADER_FROM_SERVER_METHOD, value = "test-method")
   public String ping(@HeaderParam(IBeanService.X_DESIRED_STATUS_FROM_CLIENT) Integer desiredStatus);
   
   /**

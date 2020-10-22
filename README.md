@@ -92,6 +92,12 @@ To add an **HTTP header** on the server side:
 _responseBuilder.get().header(HEADER_NAME, HEADER_VALUE);
 ```
 
+To add a **static HTTP header** on the server side (via class-level or method-level **annotation** to the REST interface):
+
+```
+@Header(name = HEADER_NAME, value = HEADER_VALUE)
+```
+
 To read an **HTTP header** on the client side:
 
 ```
@@ -157,6 +163,9 @@ Jareto has been tested with the following Application Servers:
  * JBoss EAP 7.3 
 
 ## Release Notes
+
+Version 1.1.0:
+ * added @Header annotation
 
 Version 1.0.0:
  * Initial release.

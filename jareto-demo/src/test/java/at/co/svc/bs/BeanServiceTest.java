@@ -51,6 +51,8 @@ public class BeanServiceTest {
     ClientRequestHeaders.addHeader(IBeanService.X_TEST_HEADER_FROM_CLIENT, headerValue);
     String ret = _demoClient.ping(null);
     Assert.assertEquals(headerValue, ClientResponse.CONTEXT.get().getHeaderString(IBeanService.X_TEST_HEADER_FROM_SERVER));
+    Assert.assertEquals("test-class", ClientResponse.CONTEXT.get().getHeaderString(IBeanService.X_TEST_HEADER_FROM_SERVER_CLASS));
+    Assert.assertEquals("test-method", ClientResponse.CONTEXT.get().getHeaderString(IBeanService.X_TEST_HEADER_FROM_SERVER_METHOD));
     Assert.assertEquals("pong", ret);
   }
 

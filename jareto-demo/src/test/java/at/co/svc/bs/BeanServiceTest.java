@@ -2,6 +2,10 @@ package at.co.svc.bs;
 
 import java.net.URI;
 
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
+
 import org.eclipse.microprofile.rest.client.RestClientBuilder;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -168,5 +172,27 @@ public class BeanServiceTest {
       Assert.assertEquals(expected.getStatus(), ClientResponse.CONTEXT.get().getStatus());
     }
   }
-  
+
+  /**
+   * Tests response when addressing an unknown resource.
+   */
+  @Test
+  public void unknownResource() throws Exception {
+    // we need a JAX-RS client for this test
+    WebTarget target = ClientBuilder.newBuilder().build().target(IBeanService.ENDPOINT + "v1/unknown");
+    Response response = target.request().get();
+    Assert.assertEquals(404, response.getStatus());
+  }
+
+  /**
+   * Tests response when using a wrong HTTP method.
+   */
+  @Test
+  public void wrongMethod() throws Exception {
+    // we need a JAX-RS client for this test
+    WebTarget target = ClientBuilder.newBuilder().build().target(IBeanService.ENDPOINT + "v1/ping");
+    Response response = target.request().post(null);
+    Assert.assertEquals(405, response.getStatus());
+  }
+
 }

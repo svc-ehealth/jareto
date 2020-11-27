@@ -1,6 +1,7 @@
 package at.co.svc.jareto.server.meta;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.logging.Logger;
@@ -42,13 +43,19 @@ public class ServiceResponseFilter implements ContainerResponseFilter {
     Response response = _builder.get().build();
 
     // transfer headers that have been set via class-level annotations
-    for (Header header : _resourceInfo.getResourceClass().getAnnotationsByType(Header.class)) {
-      responseContext.getHeaders().add(header.name(), header.value());
+    Class<?> resourceClass = _resourceInfo.getResourceClass();
+    if (resourceClass != null) {
+      for (Header header : resourceClass.getAnnotationsByType(Header.class)) {
+        responseContext.getHeaders().add(header.name(), header.value());
+      }
     }
     
     // transfer headers that have been set via method-level annotations
-    for (Header header : _resourceInfo.getResourceMethod().getAnnotationsByType(Header.class)) {
-      responseContext.getHeaders().add(header.name(), header.value());
+    Method resourceMethod = _resourceInfo.getResourceMethod();
+    if (resourceMethod != null) {
+      for (Header header : resourceMethod.getAnnotationsByType(Header.class)) {
+        responseContext.getHeaders().add(header.name(), header.value());
+      }
     }
 
     // transfer headers that have been set via ServiceResponseBuilder

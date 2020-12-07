@@ -30,7 +30,9 @@
 
 # revert POM versions (no useless version bump commits)
 
-# tag release version in Git (jareto-<VERSION>)
+# update README.md with new version info
+
+# tag release version on GitHub (jareto-<VERSION>)
 
 # release deployment WITH Maven Release Plugin
 ###################################################

@@ -164,11 +164,11 @@ Jareto has been tested with the following Application Servers:
 
 ## Release Notes
 
+Version 1.1.1:
+ * added handling for requests to unknown resources
+
 Version 1.1.0:
  * added @Header annotation
 
 Version 1.0.0:
  * Initial release.
-
-
-

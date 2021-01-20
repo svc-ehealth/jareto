@@ -83,7 +83,7 @@ _responseBuilder.get().status(DESIRED_STATUS);
 To read the **HTTP status code** on the client side:
 
 ```
-ClientResponse.CONTEXT.get().getHeaderString(HEADER_NAME);
+ClientResponse.CONTEXT.get().getStatus();
 ```
 
 To add an **HTTP header** on the server side:
@@ -101,7 +101,7 @@ To add a **static HTTP header** on the server side (via class-level or method-le
 To read an **HTTP header** on the client side:
 
 ```
-ClientResponse.CONTEXT.get().getHeaderString(HEADER_NAME)
+ClientResponse.CONTEXT.get().getHeaderString(HEADER_NAME);
 ```
 
 To add an **HTTP header** to a client request:

@@ -53,13 +53,13 @@ Since auto-discovery of providers may cause problems in complex applications, yo
 from the `getClasses` method of your server-side Application class:
 
 ```
-return at.co.svc.jareto.providers.ServerProviders.getAll();
+return at.co.svc.jareto.server.providers.ServerProviders.getAll();
 ```
 
 Likewise, if you want to use Jareto in a REST client, you have to register the Jareto provider classes during client construction:
 
 ```
-at.co.svc.jareto.providers.ClientProviders.registerAll(builder);
+at.co.svc.jareto.client.providers.ClientProviders.registerAll(builder);
 ```
 
 For a sample web application (including an in-container REST client and JUnit tests using a standalone REST client),

@@ -10,7 +10,7 @@ import at.co.svc.jareto.common.exceptions.AppExceptionData;
 @JsonbPropertyOrder({ "code", "detailCode", "text", "bean" })
 public class AppExceptionDataWithBean extends AppExceptionData {
 
-  private Bean _bean;
+  private Bean bean;
 
   public AppExceptionDataWithBean() {
   }
@@ -21,11 +21,11 @@ public class AppExceptionDataWithBean extends AppExceptionData {
   }
 
   public Bean getBean() {
-    return _bean;
+    return this.bean;
   }
 
   public void setBean(Bean bean) {
-    _bean = bean;
+    this.bean = bean;
   }
   
 }

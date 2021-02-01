@@ -159,10 +159,13 @@ WebApplicationExceptionFactory.registerCustomizer(new IServiceExceptionCustomize
 
 Jareto has been tested with the following Application Servers:
 
- * Wildfly 18 
- * JBoss EAP 7.3 
+ * Wildfly
+ * JBoss EAP
 
 ## Release Notes
+
+Version 1.1.2:
+ * removed field underlines from exceptions (to support fixed JSON property order)
 
 Version 1.1.1:
  * added handling for requests to unknown resources

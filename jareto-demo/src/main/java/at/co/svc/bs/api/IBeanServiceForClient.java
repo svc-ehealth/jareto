@@ -10,8 +10,6 @@ import javax.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
-
 import at.co.svc.jareto.client.exceptions.ClientAppExceptionMapper;
 import at.co.svc.jareto.client.meta.ClientRequestHeadersFilter;
 import at.co.svc.jareto.client.meta.ClientResponseContextFilter;
@@ -26,7 +24,6 @@ import at.co.svc.jareto.common.exceptions.AppRuntimeException;
 @Produces({ MediaType.APPLICATION_JSON + ";charset=utf-8" })
 // the endpoint can also be provided via system property / Microprofile Config
 @RegisterRestClient(baseUri = IBeanServiceForClient.ENDPOINT)
-@RegisterProvider(JacksonJsonProvider.class)
 @RegisterProvider(ClientRequestHeadersFilter.class)
 @RegisterProvider(ClientResponseContextFilter.class)
 @RegisterProvider(ClientAppExceptionMapper.class)

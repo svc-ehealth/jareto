@@ -84,8 +84,9 @@
 
     <!-- required by REST client for (de-)serializing JSON -->
     <dependency>
-      <groupId>com.fasterxml.jackson.jaxrs</groupId>
-      <artifactId>jackson-jaxrs-json-provider</artifactId>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-json-binding-provider</artifactId>
+      <version>3.9.1.Final</version>
       <scope>test</scope>
     </dependency>
 

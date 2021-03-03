@@ -33,7 +33,7 @@ public class AppExceptionData {
     return this.code;
   }
 
-  protected void setCode(String code) {
+  public void setCode(String code) {
     this.code = code;
   }
 
@@ -44,7 +44,7 @@ public class AppExceptionData {
     return this.detailCode;
   }
 
-  protected void setDetailCode(String detailCode) {
+  public void setDetailCode(String detailCode) {
     this.detailCode = detailCode;
   }
 
@@ -55,7 +55,7 @@ public class AppExceptionData {
     return this.text;
   }
 
-  protected void setText(String text) {
+  public void setText(String text) {
     this.text = text;
   }
 

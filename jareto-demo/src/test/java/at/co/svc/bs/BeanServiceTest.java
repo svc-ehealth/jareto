@@ -11,8 +11,6 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
-
 import at.co.svc.bs.api.IBeanService;
 import at.co.svc.jareto.client.exceptions.ClientExceptionMapper;
 import at.co.svc.jareto.client.meta.ClientRequestHeaders;
@@ -28,8 +26,7 @@ public class BeanServiceTest {
   @BeforeClass
   public static void beforeClass() throws Exception {
     RestClientBuilder builder = RestClientBuilder.newBuilder()
-        .baseUri(URI.create(IBeanService.ENDPOINT))
-        .register(JacksonJsonProvider.class);
+        .baseUri(URI.create(IBeanService.ENDPOINT));
     ClientProviders.registerAll(builder);
     _demoClient = builder.build(IBeanService.class);
     ClientExceptionMapper.registerEntityClass(AppExceptionDataWithBean.class);

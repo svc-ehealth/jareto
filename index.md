@@ -12,8 +12,7 @@ The following technologies already allow for convenient and efficient developmen
 
 However, these technologies currently lack certain features that are often required, forcing the
 developer to "re-invent the wheel" or fall back to lower-level technologies 
-such as [JSON-P](https://jcp.org/en/jsr/detail?id=374) in combination with `javax.xml.ws.Response`, 
-or even [plain servlets](https://jcp.org/en/jsr/detail?id=369).
+such as [JSON-P](https://jcp.org/en/jsr/detail?id=374) in combination with `javax.xml.ws.Response`.
 
 **Jareto** provides the following features in an easy-to-use way, for both server- and client-side development:
 
@@ -37,14 +36,14 @@ To use the features provided by Jareto, add the following dependency to your pro
     <dependency>
       <groupId>at.co.svc.jareto</groupId>
       <artifactId>jareto-server</artifactId>
-      <version>INSERT LATEST VERSION HERE</version>
+      <version>1.1.2</version>
     </dependency>
     
     <!-- for using client-side features -->
     <dependency>
       <groupId>at.co.svc.jareto</groupId>
       <artifactId>jareto-client</artifactId>
-      <version>INSERT LATEST VERSION HERE</version>
+      <version>1.1.2</version>
     </dependency>
 
 ```

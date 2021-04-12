@@ -1,5 +1,6 @@
 package at.co.svc.jareto.client.providers;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.ws.rs.core.Configurable;
@@ -17,10 +18,11 @@ public final class ClientProviders {
    * Returns all client-side Jareto providers.
    */
   public static Set<Class<?>> getAll() {
-    return Set.of(
-      ClientRequestHeadersFilter.class,
-      ClientResponseContextFilter.class,
-      ClientAppExceptionMapper.class);
+    Set<Class<?>> allProviders = new HashSet<>();
+    allProviders.add(ClientRequestHeadersFilter.class);
+    allProviders.add(ClientResponseContextFilter.class);
+    allProviders.add(ClientAppExceptionMapper.class);
+    return allProviders;
   }
   
   /**

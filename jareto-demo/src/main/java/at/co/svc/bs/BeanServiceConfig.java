@@ -29,7 +29,9 @@ public class BeanServiceConfig extends Application {
   }
   
   private Set<Class<?>> getServiceClasses() {
-    return Set.of(BeanService.class);
+    Set<Class<?>> serviceClasses = new HashSet<>();
+    serviceClasses.add(BeanService.class);
+    return serviceClasses;
   }
   
   private Set<Class<?>> getProviderClasses() {

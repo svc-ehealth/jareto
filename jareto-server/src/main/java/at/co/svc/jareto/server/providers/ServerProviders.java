@@ -1,5 +1,6 @@
 package at.co.svc.jareto.server.providers;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import at.co.svc.jareto.server.exceptions.ServiceAppExceptionMapper;
@@ -16,11 +17,12 @@ public final class ServerProviders {
    * Returns all server-side Jareto providers.
    */
   public static Set<Class<?>> getAll() {
-    return Set.of(
-        ServiceAppExceptionMapper.class, 
-        ServiceAppRuntimeExceptionMapper.class, 
-        ServiceRuntimeExceptionMapper.class, 
-        ServiceResponseFilter.class);
+    Set<Class<?>> allProviders = new HashSet<>();
+    allProviders.add(ServiceAppExceptionMapper.class);
+    allProviders.add(ServiceAppRuntimeExceptionMapper.class);
+    allProviders.add(ServiceRuntimeExceptionMapper.class);
+    allProviders.add(ServiceResponseFilter.class);
+    return allProviders;
   }
   
 }

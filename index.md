@@ -164,6 +164,9 @@ Jareto has been tested with the following Application Servers:
 
 ## Release Notes
 
+Version 1.1.3:
+ * made compatible also with Java 8 (was: Java 11)
+
 Version 1.1.2:
  * removed field underlines from exceptions (to support fixed JSON property order)
 

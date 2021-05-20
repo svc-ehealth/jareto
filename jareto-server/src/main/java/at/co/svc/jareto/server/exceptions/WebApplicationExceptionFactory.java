@@ -9,20 +9,21 @@ import at.co.svc.jareto.common.exceptions.AppExceptionData;
 import at.co.svc.jareto.common.exceptions.AppRuntimeException;
 import at.co.svc.jareto.common.exceptions.IAppException;
 
+// Test comment
 /**
  * Factory for creating {@link WebApplicationException} from other exceptions.
  */
 public class WebApplicationExceptionFactory {
 
   private static IServiceExceptionCustomizer _customizer = new IServiceExceptionCustomizer() { };
-  
+
   /**
    * Registers a customizer to be used when mapping exceptions to wire data.
    */
   public static void registerCustomizer(IServiceExceptionCustomizer customizer) {
     _customizer = customizer;
   }
-  
+
   /**
    * Creates a WebApplicationException from the given AppException.
    */
@@ -51,15 +52,15 @@ public class WebApplicationExceptionFactory {
     return new WebApplicationException(Response
       .status(_customizer.getUnexpectedStatus())
       .entity(new AppExceptionData(
-        _customizer.getUnexpectedCode(), 
-        _customizer.getUnexpectedDetailCode(), 
-        _customizer.getUnexpectedText()))      
+        _customizer.getUnexpectedCode(),
+        _customizer.getUnexpectedDetailCode(),
+        _customizer.getUnexpectedText()))
       .header(IAppException.HEADER_ERROR_TYPE, AppRuntimeException.class.getName())
       .header(IAppException.HEADER_ERROR_ENTITY_TYPE, AppExceptionData.class.getName())
       .type(MediaType.APPLICATION_JSON)
       .build());
   }
-  
+
   /**
    * Creates a WebApplicationException from the given ClientErrorException.
    */
@@ -69,12 +70,12 @@ public class WebApplicationExceptionFactory {
       .status(_customizer.getClientErrorStatus(ex.getResponse().getStatus()))
       .entity(new AppExceptionData(
         _customizer.getClientErrorCode(),
-        _customizer.getClientErrorDetailCode(), 
+        _customizer.getClientErrorDetailCode(),
         _customizer.getClientErrorText()))
       .header(IAppException.HEADER_ERROR_TYPE, AppRuntimeException.class.getName())
       .header(IAppException.HEADER_ERROR_ENTITY_TYPE, AppExceptionData.class.getName())
       .type(MediaType.APPLICATION_JSON)
       .build());
   }
-  
+
 }

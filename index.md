@@ -27,6 +27,12 @@ such as [JSON-P](https://jcp.org/en/jsr/detail?id=374) in combination with `java
 
 Depending on your requirements, you can use the server-side part of Jareto, or the client-side part, or both.
 
+## Documentation
+
+The `Usage` section below provides a crisp overview of how to apply Jareto's features.
+
+For a gentle introduction, read the Jareto article in Oracle's [Java Magazine](https://blogs.oracle.com/javamagazine/java-jareto-rest-json-http).
+
 ## Usage
 
 To use the features provided by Jareto, add the following dependency to your project:

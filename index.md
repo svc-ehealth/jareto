@@ -6,12 +6,12 @@ The following technologies already allow for convenient and efficient developmen
 
  * [Java EE](https://www.oracle.com/java/technologies/java-ee-glance.html) / [Jakarta EE 8](https://jakarta.ee/release/)
    * [JAX-RS](https://jcp.org/en/jsr/detail?id=370)
-   * [JSON-B](https://jcp.org/en/jsr/detail?id=367) 
+   * [JSON-B](https://jcp.org/en/jsr/detail?id=367)
  * [Eclipse Microprofile](https://projects.eclipse.org/projects/technology.microprofile)
    * [Microprofile REST client](https://github.com/eclipse/microprofile-rest-client)
 
 However, these technologies currently lack certain features that are often required, forcing the
-developer to "re-invent the wheel" or fall back to lower-level technologies 
+developer to "re-invent the wheel" or fall back to lower-level technologies
 such as [JSON-P](https://jcp.org/en/jsr/detail?id=374) in combination with `javax.xml.ws.Response`.
 
 **Jareto** provides the following features in an easy-to-use way, for both server- and client-side development:
@@ -44,7 +44,7 @@ To use the features provided by Jareto, add the following dependency to your pro
       <artifactId>jareto-server</artifactId>
       <version>1.1.2</version>
     </dependency>
-    
+
     <!-- for using client-side features -->
     <dependency>
       <groupId>at.co.svc.jareto</groupId>
@@ -54,7 +54,7 @@ To use the features provided by Jareto, add the following dependency to your pro
 
 ```
 
-Since auto-discovery of providers may cause problems in complex applications, you have to explicitly return the Jareto provider classes 
+Since auto-discovery of providers may cause problems in complex applications, you have to explicitly return the Jareto provider classes
 from the `getClasses` method of your server-side Application class:
 
 ```
@@ -131,9 +131,9 @@ To throw a checked exception on the server side:
 throw new AppException(ERROR_CODE, ERROR_TEXT)
 ```
 
-The error code and text will be transported as JSON payload. Extended constructors also allow 
-transporting additional payload (by extending `at.co.svc.jareto.common.exceptions.AppExceptionData`) 
-and explicitly setting the HTTP status code. 
+The error code and text will be transported as JSON payload. Extended constructors also allow
+transporting additional payload (by extending `at.co.svc.jareto.common.exceptions.AppExceptionData`)
+and explicitly setting the HTTP status code.
 
 On the client side, the HTTP wire data is automatically transformed back into an AppException.
 The error code, text, and HTTP status are accessible via appropriate getters:
@@ -156,7 +156,7 @@ Certain aspects of the server-side mapping can be customized by defining and reg
 
 ```
 WebApplicationExceptionFactory.registerCustomizer(new IServiceExceptionCustomizer() {
-  // override the methods that you want to customize here  
+  // override the methods that you want to customize here
 });
 ```
 
@@ -168,6 +168,9 @@ Jareto has been tested with the following Application Servers:
  * JBoss EAP
 
 ## Release Notes
+
+Version 1.1.4:
+ * enhancement: exception customizer as thread local
 
 Version 1.1.3:
  * made compatible also with Java 8 (was: Java 11)

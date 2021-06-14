@@ -15,10 +15,13 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
 import at.co.svc.jareto.common.meta.Header;
+import at.co.svc.jareto.server.exceptions.IServiceExceptionCustomizer;
+import at.co.svc.jareto.server.exceptions.WebApplicationExceptionFactory;
 
 /**
  * Allows returning custom HTTP headers and status codes in the response
  * (using {@link ServiceResponseBuilder} or {@link Header}).
+ * Also takes care of cleaning up {@link IServiceExceptionCustomizer} from {@link ThreadLocal}.
  */
 // The {@link Provider} annotation enables auto-detection (only works if classes are not
 // provided explicitly by an {@link Application} subclass).
@@ -28,7 +31,7 @@ public class ServiceResponseFilter implements ContainerResponseFilter {
 
   @Inject
   private ServiceResponseBuilder _builder;
-  
+
   @Context
   private ResourceInfo _resourceInfo;
 
@@ -37,9 +40,9 @@ public class ServiceResponseFilter implements ContainerResponseFilter {
   @Override
   public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext)
       throws IOException {
-    
+
     LOG.info("filtering service response");
-    
+
     Response response = _builder.get().build();
 
     // transfer headers that have been set via class-level annotations
@@ -49,7 +52,7 @@ public class ServiceResponseFilter implements ContainerResponseFilter {
         responseContext.getHeaders().add(header.name(), header.value());
       }
     }
-    
+
     // transfer headers that have been set via method-level annotations
     Method resourceMethod = _resourceInfo.getResourceMethod();
     if (resourceMethod != null) {
@@ -68,7 +71,10 @@ public class ServiceResponseFilter implements ContainerResponseFilter {
         && response.getStatus() != ServiceResponseBuilder.EXCEPTION_STATUS) {
       responseContext.setStatus(response.getStatus());
     }
-    
+
+    // removes the thread-local customizer (to prevent leakage into other threads / applications).
+    WebApplicationExceptionFactory.removeCustomizerThreadLocal();
+
   }
 
 }

@@ -22,7 +22,7 @@ import at.co.svc.jareto.common.exceptions.AppRuntimeException;
 public class BeanServiceTest {
 
   private static IBeanService _demoClient;
-  
+
   @BeforeClass
   public static void beforeClass() throws Exception {
     RestClientBuilder builder = RestClientBuilder.newBuilder()
@@ -42,7 +42,7 @@ public class BeanServiceTest {
     Assert.assertEquals("pong", ret);
     Assert.assertEquals(desiredStatus, ClientResponse.CONTEXT.get().getStatus());
   }
-  
+
   /**
    * Tests transfer of HTTP headers.
    */
@@ -92,7 +92,26 @@ public class BeanServiceTest {
       Assert.assertEquals(expected.getStatus(), ClientResponse.CONTEXT.get().getStatus());
     }
   }
-  
+
+  /**
+   * Tests mapping of a customized AppException (checked exception).
+   */
+  @Test
+  public void exMappedCustomized() throws Exception {
+    try {
+      _demoClient.exMappedCustomized();
+      Assert.fail("expecting exception");
+    }
+    catch (AppException e) {
+      AppException expected = BeanExceptionFactory.createBeanException();
+      Assert.assertEquals(expected.getData().getCode() + "c", e.getData().getCode());
+      Assert.assertEquals(expected.getData().getText() + " customized", e.getData().getText());
+      Assert.assertEquals(BeanFactory.createBean(), ((AppExceptionDataWithBean) e.getData()).getBean());
+      Assert.assertEquals(expected.getStatus(), e.getStatus());
+      Assert.assertEquals(expected.getStatus(), ClientResponse.CONTEXT.get().getStatus());
+    }
+  }
+
   /**
    * Tests mapping of an AppRuntimeException (runtime exception).
    */
@@ -111,7 +130,7 @@ public class BeanServiceTest {
       Assert.assertEquals(expected.getStatus(), ClientResponse.CONTEXT.get().getStatus());
     }
   }
-  
+
   /**
    * Tests a "cascading" request (i.e., one that triggers another request by the server).
    * Makes sure that transfer of HTTP status and headers also works for a client that is used
@@ -119,13 +138,13 @@ public class BeanServiceTest {
    */
   @Test
   public void cascade() throws Exception {
-    
+
     String headerValue = "test-header-value-from-client";
     int desiredStatus = 202;
-    
+
     ClientRequestHeaders.addHeader(IBeanService.X_TEST_HEADER_FROM_CLIENT, headerValue);
     String ret = _demoClient.cascade(desiredStatus);
-    
+
     Assert.assertEquals("cascading pong", ret);
     Assert.assertEquals(desiredStatus, ClientResponse.CONTEXT.get().getStatus());
     Assert.assertEquals(headerValue, ClientResponse.CONTEXT.get().getHeaderString(IBeanService.X_TEST_HEADER_FROM_SERVER));

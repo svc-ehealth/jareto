@@ -9,7 +9,7 @@ import javax.ws.rs.core.MultivaluedMap;
 public class ClientRequestHeaders {
 
   public static final ThreadLocal<MultivaluedMap<String, String>> HEADERS = new ThreadLocal<>();
-  
+
   /**
    * Adds a header to be sent to the service.
    */
@@ -21,5 +21,12 @@ public class ClientRequestHeaders {
     }
     headers.add(name, value);
   }
-  
+
+  /**
+   * Removes all headers stored before.
+   */
+  public static void clearHeaders() {
+    HEADERS.remove();
+  }
+
 }

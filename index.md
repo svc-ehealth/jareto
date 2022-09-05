@@ -42,14 +42,14 @@ To use the features provided by Jareto, add the following dependency to your pro
     <dependency>
       <groupId>at.co.svc.jareto</groupId>
       <artifactId>jareto-server</artifactId>
-      <version>1.1.2</version>
+      <version>1.1.5</version>
     </dependency>
 
     <!-- for using client-side features -->
     <dependency>
       <groupId>at.co.svc.jareto</groupId>
       <artifactId>jareto-client</artifactId>
-      <version>1.1.2</version>
+      <version>1.1.5</version>
     </dependency>
 
 ```
@@ -168,6 +168,9 @@ Jareto has been tested with the following Application Servers:
  * JBoss EAP
 
 ## Release Notes
+
+Version 1.1.5:
+ * enhancement: function added to manually clear request header
 
 Version 1.1.4:
  * enhancement: exception customizer as thread local

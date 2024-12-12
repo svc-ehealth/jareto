@@ -1,7 +1,7 @@
 package at.co.svc.jareto.client.meta;
 
-import javax.ws.rs.core.MultivaluedHashMap;
-import javax.ws.rs.core.MultivaluedMap;
+import jakarta.ws.rs.core.MultivaluedHashMap;
+import jakarta.ws.rs.core.MultivaluedMap;
 
 /**
  * Transports HTTP headers to be sent in the client's request to the responsible request filter.

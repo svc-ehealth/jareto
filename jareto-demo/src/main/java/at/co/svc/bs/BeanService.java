@@ -1,7 +1,7 @@
 package at.co.svc.bs;
 
-import javax.inject.Inject;
-import javax.ws.rs.HeaderParam;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.HeaderParam;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 

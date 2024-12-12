@@ -1,6 +1,6 @@
 package at.co.svc.jareto.common.exceptions;
 
-import javax.json.bind.annotation.JsonbPropertyOrder;
+import jakarta.json.bind.annotation.JsonbPropertyOrder;
 
 /**
  * Data to be transported with an application exception (both checked and runtime).

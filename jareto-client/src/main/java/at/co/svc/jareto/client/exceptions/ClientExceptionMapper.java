@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response;
 
 import at.co.svc.jareto.common.exceptions.AppExceptionData;
 import at.co.svc.jareto.common.exceptions.IAppException;

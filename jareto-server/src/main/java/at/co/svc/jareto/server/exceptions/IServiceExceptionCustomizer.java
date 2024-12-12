@@ -3,7 +3,7 @@ package at.co.svc.jareto.server.exceptions;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.ws.rs.ClientErrorException;
+import jakarta.ws.rs.ClientErrorException;
 
 import at.co.svc.jareto.common.exceptions.IAppException;
 

@@ -1,6 +1,6 @@
 package at.co.svc.jareto.common.exceptions;
 
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response;
 
 /**
  * If you throw this runtime exception, it will be automatically mapped to HTTP wire data 

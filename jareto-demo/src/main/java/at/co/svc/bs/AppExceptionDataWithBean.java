@@ -1,7 +1,7 @@
 package at.co.svc.bs;
 
-import javax.json.bind.annotation.JsonbProperty;
-import javax.json.bind.annotation.JsonbPropertyOrder;
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbPropertyOrder;
 
 import at.co.svc.jareto.common.exceptions.AppExceptionData;
 

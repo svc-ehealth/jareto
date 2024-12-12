@@ -3,7 +3,7 @@ package at.co.svc.jareto.client.providers;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.ws.rs.core.Configurable;
+import jakarta.ws.rs.core.Configurable;
 
 import at.co.svc.jareto.client.exceptions.ClientAppExceptionMapper;
 import at.co.svc.jareto.client.meta.ClientRequestHeadersFilter;

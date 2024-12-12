@@ -1,16 +1,16 @@
 package at.co.svc.jareto.server.exceptions;
 
-import javax.inject.Inject;
-import javax.ws.rs.ClientErrorException;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.ExceptionMapper;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.ClientErrorException;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.ext.ExceptionMapper;
 
 import at.co.svc.jareto.server.meta.ServiceResponseBuilder;
 
 /**
  * Server-side mapper for transforming an outgoing {@link RuntimeException} into a JAX-RS response ("catch-all").
  * Must be registered by the server to become effective (via auto-detection, or by returning it from 
- * {@link javax.ws.rs.core.Application#getClasses()}).
+ * {@link jakarta.ws.rs.core.Application#getClasses()}).
  */
 // The {@link Provider} annotation enables auto-detection (only works if classes are not
 // provided explicitly by an {@link Application} subclass).

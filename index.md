@@ -4,15 +4,15 @@
 
 The following technologies already allow for convenient and efficient development of REST servers and clients:
 
- * [Java EE](https://www.oracle.com/java/technologies/java-ee-glance.html) / [Jakarta EE 8](https://jakarta.ee/release/)
-   * [JAX-RS](https://jcp.org/en/jsr/detail?id=370)
-   * [JSON-B](https://jcp.org/en/jsr/detail?id=367)
- * [Eclipse Microprofile](https://projects.eclipse.org/projects/technology.microprofile)
+ * [Jakarta EE 10](https://jakarta.ee/release/)
+   * [Jakarta RESTful Web Services](https://jakarta.ee/specifications/restful-ws/3.1/)
+   * [Jakarta JSON Binding](https://jakarta.ee/specifications/jsonb/3.0/)
+ * [Eclipse Microprofile](https://microprofile.io/)
    * [Microprofile REST client](https://github.com/eclipse/microprofile-rest-client)
 
 However, these technologies currently lack certain features that are often required, forcing the
 developer to "re-invent the wheel" or fall back to lower-level technologies
-such as [JSON-P](https://jcp.org/en/jsr/detail?id=374) in combination with `javax.xml.ws.Response`.
+such as [Jakarta JSON Processing](https://jakarta.ee/specifications/jsonp/2.1/).
 
 **Jareto** provides the following features in an easy-to-use way, for both server- and client-side development:
 
@@ -42,14 +42,14 @@ To use the features provided by Jareto, add the following dependency to your pro
     <dependency>
       <groupId>at.co.svc.jareto</groupId>
       <artifactId>jareto-server</artifactId>
-      <version>1.1.5</version>
+      <version>2.0.0</version>
     </dependency>
 
     <!-- for using client-side features -->
     <dependency>
       <groupId>at.co.svc.jareto</groupId>
       <artifactId>jareto-client</artifactId>
-      <version>1.1.5</version>
+      <version>2.0.0</version>
     </dependency>
 
 ```
@@ -168,6 +168,9 @@ Jareto has been tested with the following Application Servers:
  * JBoss EAP
 
 ## Release Notes
+
+Version 2.0.0:
+* upgrade to Jakarta EE 10, MicroProfile 6.1, and Java 11  
 
 Version 1.1.5:
  * enhancement: function added to manually clear request header

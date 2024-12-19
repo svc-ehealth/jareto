@@ -170,7 +170,7 @@ Jareto has been tested with the following Application Servers:
 ## Release Notes
 
 Version 2.0.0:
-* upgrade to Jakarta EE 10, MicroProfile 6.1, and Java 11  
+* upgrade to Jakarta EE 10, MicroProfile 6.1, and Java 11
 
 Version 1.1.5:
  * enhancement: function added to manually clear request header

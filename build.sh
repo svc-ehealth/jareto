@@ -15,6 +15,12 @@
 # release deployment WITHOUT Maven Release Plugin
 ###################################################
 
+# NOTE that the "nexus-staging-maven-plugin" (which is used here)
+# effectively STOPPED WORKING WITH JDK 17 (at least for the final release step below);
+# until we migrate to another plugin, use the following workaround:
+# use JDK 16 in combination with the following line in the file ".mvn/jvm.config":
+# --illegal-access=permit
+
 # remove "-SNAPSHOT" from version number
 # mvn versions:set -DgenerateBackupPoms=false -DnewVersion=0.0.1
 
@@ -30,7 +36,7 @@
 
 # revert POM versions (no useless version bump commits)
 
-# update README.md with new version info
+# update "gh-pages" branch with new version info
 
 # tag release version on GitHub (jareto-<VERSION>)
 

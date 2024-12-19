@@ -23,6 +23,21 @@
   </repositories>
   -->
 
+  <!-- Sonatype Staging Repository
+  <repositories>
+    <repository>
+      <id>sonatype-staging</id>
+      <url>https://oss.sonatype.org/content/repositories/staging/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  -->
+
   <dependencyManagement>
     <dependencies>
       <dependency>
